@@ -176,8 +176,8 @@ const agents = [
 
 export default function Agents() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [locationFilter, setLocationFilter] = useState("");
-  const [specialtyFilter, setSpecialtyFilter] = useState("");
+  const [locationFilter, setLocationFilter] = useState("all");
+  const [specialtyFilter, setSpecialtyFilter] = useState("all");
 
   const filteredAgents = agents.filter((agent) => {
     const matchesSearch =
@@ -186,9 +186,9 @@ export default function Agents() {
         specialty.toLowerCase().includes(searchTerm.toLowerCase()),
       );
     const matchesLocation =
-      !locationFilter || agent.location.includes(locationFilter);
+      locationFilter === "all" || agent.location.includes(locationFilter);
     const matchesSpecialty =
-      !specialtyFilter || agent.specialties.includes(specialtyFilter);
+      specialtyFilter === "all" || agent.specialties.includes(specialtyFilter);
 
     return matchesSearch && matchesLocation && matchesSpecialty;
   });
@@ -229,7 +229,7 @@ export default function Agents() {
                   <SelectValue placeholder="Location" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Locations</SelectItem>
+                  <SelectItem value="all">All Locations</SelectItem>
                   <SelectItem value="Beverly Hills">
                     Beverly Hills, CA
                   </SelectItem>
@@ -250,7 +250,7 @@ export default function Agents() {
                   <SelectValue placeholder="Specialty" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Specialties</SelectItem>
+                  <SelectItem value="all">All Specialties</SelectItem>
                   <SelectItem value="Luxury Homes">Luxury Homes</SelectItem>
                   <SelectItem value="Waterfront Properties">
                     Waterfront Properties
@@ -581,8 +581,8 @@ export default function Agents() {
                 variant="outline"
                 onClick={() => {
                   setSearchTerm("");
-                  setLocationFilter("");
-                  setSpecialtyFilter("");
+                  setLocationFilter("all");
+                  setSpecialtyFilter("all");
                 }}
               >
                 Clear Filters
