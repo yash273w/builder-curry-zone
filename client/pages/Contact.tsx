@@ -1,12 +1,27 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Calendar, Building } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  Calendar,
+  Building,
+} from "lucide-react";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 
 const offices = [
@@ -17,7 +32,8 @@ const offices = [
     phone: "+1 (555) 123-4567",
     email: "beverlyhills@luxuryrealty.com",
     hours: "Mon-Fri: 8AM-8PM, Sat-Sun: 9AM-6PM",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
     isHeadquarters: true,
   },
   {
@@ -27,7 +43,8 @@ const offices = [
     phone: "+1 (555) 234-5678",
     email: "manhattan@luxuryrealty.com",
     hours: "Mon-Fri: 8AM-7PM, Sat-Sun: 10AM-5PM",
-    image: "https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=800&q=80",
     isHeadquarters: false,
   },
   {
@@ -37,7 +54,8 @@ const offices = [
     phone: "+1 (555) 345-6789",
     email: "miami@luxuryrealty.com",
     hours: "Mon-Fri: 9AM-7PM, Sat-Sun: 10AM-6PM",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
     isHeadquarters: false,
   },
 ];
@@ -92,19 +110,19 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -132,8 +150,8 @@ export default function Contact() {
             Contact Our Team
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to find your dream property or have questions about our services? 
-            Our expert team is here to help you every step of the way.
+            Ready to find your dream property or have questions about our
+            services? Our expert team is here to help you every step of the way.
           </p>
         </div>
       </section>
@@ -157,10 +175,18 @@ export default function Contact() {
                   <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                     <method.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{method.title}</h3>
-                  <p className="text-muted-foreground mb-4">{method.description}</p>
-                  <p className="font-semibold text-foreground mb-2">{method.contact}</p>
-                  <p className="text-sm text-muted-foreground">{method.hours}</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {method.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    {method.description}
+                  </p>
+                  <p className="font-semibold text-foreground mb-2">
+                    {method.contact}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {method.hours}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -178,7 +204,8 @@ export default function Contact() {
                 <CardHeader>
                   <CardTitle className="text-2xl">Send us a Message</CardTitle>
                   <p className="text-muted-foreground">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    Fill out the form below and we'll get back to you within 24
+                    hours.
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -202,7 +229,9 @@ export default function Contact() {
                           <Input
                             id="firstName"
                             value={formData.firstName}
-                            onChange={(e) => handleInputChange("firstName", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("firstName", e.target.value)
+                            }
                             required
                           />
                         </div>
@@ -211,7 +240,9 @@ export default function Contact() {
                           <Input
                             id="lastName"
                             value={formData.lastName}
-                            onChange={(e) => handleInputChange("lastName", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("lastName", e.target.value)
+                            }
                             required
                           />
                         </div>
@@ -224,7 +255,9 @@ export default function Contact() {
                             id="email"
                             type="email"
                             value={formData.email}
-                            onChange={(e) => handleInputChange("email", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("email", e.target.value)
+                            }
                             required
                           />
                         </div>
@@ -233,7 +266,9 @@ export default function Contact() {
                           <Input
                             id="phone"
                             value={formData.phone}
-                            onChange={(e) => handleInputChange("phone", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("phone", e.target.value)
+                            }
                           />
                         </div>
                       </div>
@@ -241,7 +276,12 @@ export default function Contact() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="inquiryType">Inquiry Type *</Label>
-                          <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange("inquiryType", value)}>
+                          <Select
+                            value={formData.inquiryType}
+                            onValueChange={(value) =>
+                              handleInputChange("inquiryType", value)
+                            }
+                          >
                             <SelectTrigger>
                               <SelectValue placeholder="Select inquiry type" />
                             </SelectTrigger>
@@ -255,26 +295,46 @@ export default function Contact() {
                           </Select>
                         </div>
                         <div>
-                          <Label htmlFor="propertyBudget">Property Budget</Label>
-                          <Select value={formData.propertyBudget} onValueChange={(value) => handleInputChange("propertyBudget", value)}>
+                          <Label htmlFor="propertyBudget">
+                            Property Budget
+                          </Label>
+                          <Select
+                            value={formData.propertyBudget}
+                            onValueChange={(value) =>
+                              handleInputChange("propertyBudget", value)
+                            }
+                          >
                             <SelectTrigger>
                               <SelectValue placeholder="Select budget range" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="under-500k">Under $500K</SelectItem>
-                              <SelectItem value="500k-1m">$500K - $1M</SelectItem>
+                              <SelectItem value="under-500k">
+                                Under $500K
+                              </SelectItem>
+                              <SelectItem value="500k-1m">
+                                $500K - $1M
+                              </SelectItem>
                               <SelectItem value="1m-2m">$1M - $2M</SelectItem>
                               <SelectItem value="2m-5m">$2M - $5M</SelectItem>
                               <SelectItem value="5m-10m">$5M - $10M</SelectItem>
-                              <SelectItem value="over-10m">Over $10M</SelectItem>
+                              <SelectItem value="over-10m">
+                                Over $10M
+                              </SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                       </div>
 
                       <div>
-                        <Label htmlFor="preferredContact">Preferred Contact Method</Label>
-                        <Select value={formData.preferredContact} onValueChange={(value) => handleInputChange("preferredContact", value)}>
+                        <Label htmlFor="preferredContact">
+                          Preferred Contact Method
+                        </Label>
+                        <Select
+                          value={formData.preferredContact}
+                          onValueChange={(value) =>
+                            handleInputChange("preferredContact", value)
+                          }
+                        >
                           <SelectTrigger>
                             <SelectValue placeholder="How would you like us to contact you?" />
                           </SelectTrigger>
@@ -294,13 +354,15 @@ export default function Contact() {
                           placeholder="Tell us about your real estate needs..."
                           rows={4}
                           value={formData.message}
-                          onChange={(e) => handleInputChange("message", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("message", e.target.value)
+                          }
                           required
                         />
                       </div>
 
-                      <Button 
-                        type="submit" 
+                      <Button
+                        type="submit"
                         className="w-full py-6 text-lg"
                         disabled={isSubmitting}
                       >
@@ -329,23 +391,37 @@ export default function Contact() {
                   <CardTitle className="text-xl">Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Button className="w-full justify-start py-6" variant="outline" asChild>
+                  <Button
+                    className="w-full justify-start py-6"
+                    variant="outline"
+                    asChild
+                  >
                     <a href="tel:+15551234567">
                       <Phone className="w-5 h-5 mr-3" />
                       Call Now: +1 (555) 123-4567
                     </a>
                   </Button>
-                  <Button className="w-full justify-start py-6" variant="outline" asChild>
+                  <Button
+                    className="w-full justify-start py-6"
+                    variant="outline"
+                    asChild
+                  >
                     <a href="mailto:info@luxuryrealty.com">
                       <Mail className="w-5 h-5 mr-3" />
                       Email: info@luxuryrealty.com
                     </a>
                   </Button>
-                  <Button className="w-full justify-start py-6" variant="outline">
+                  <Button
+                    className="w-full justify-start py-6"
+                    variant="outline"
+                  >
                     <Calendar className="w-5 h-5 mr-3" />
                     Schedule Consultation
                   </Button>
-                  <Button className="w-full justify-start py-6" variant="outline">
+                  <Button
+                    className="w-full justify-start py-6"
+                    variant="outline"
+                  >
                     <MessageCircle className="w-5 h-5 mr-3" />
                     Start Live Chat
                   </Button>
@@ -414,7 +490,8 @@ export default function Contact() {
               Our Office Locations
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Visit us at any of our convenient locations or schedule a consultation at your preferred office.
+              Visit us at any of our convenient locations or schedule a
+              consultation at your preferred office.
             </p>
           </div>
 
@@ -435,8 +512,10 @@ export default function Contact() {
                   )}
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-4">{office.name}</h3>
-                  
+                  <h3 className="text-xl font-semibold text-foreground mb-4">
+                    {office.name}
+                  </h3>
+
                   <div className="space-y-3 mb-6">
                     <div className="flex items-start">
                       <MapPin className="w-4 h-4 text-muted-foreground mr-3 mt-1" />
@@ -444,13 +523,19 @@ export default function Contact() {
                     </div>
                     <div className="flex items-center">
                       <Phone className="w-4 h-4 text-muted-foreground mr-3" />
-                      <a href={`tel:${office.phone}`} className="text-sm hover:text-primary">
+                      <a
+                        href={`tel:${office.phone}`}
+                        className="text-sm hover:text-primary"
+                      >
                         {office.phone}
                       </a>
                     </div>
                     <div className="flex items-center">
                       <Mail className="w-4 h-4 text-muted-foreground mr-3" />
-                      <a href={`mailto:${office.email}`} className="text-sm hover:text-primary">
+                      <a
+                        href={`mailto:${office.email}`}
+                        className="text-sm hover:text-primary"
+                      >
                         {office.email}
                       </a>
                     </div>
@@ -495,24 +580,30 @@ export default function Contact() {
             {[
               {
                 question: "How quickly can I expect a response?",
-                answer: "We respond to all inquiries within 2-4 hours during business hours, and within 24 hours on weekends."
+                answer:
+                  "We respond to all inquiries within 2-4 hours during business hours, and within 24 hours on weekends.",
               },
               {
                 question: "Do you charge consultation fees?",
-                answer: "Initial consultations are complimentary. We believe in providing value upfront and earning your business through exceptional service."
+                answer:
+                  "Initial consultations are complimentary. We believe in providing value upfront and earning your business through exceptional service.",
               },
               {
                 question: "What areas do you serve?",
-                answer: "We serve luxury property markets nationwide, with specialized teams in California, New York, Florida, Texas, and Washington."
+                answer:
+                  "We serve luxury property markets nationwide, with specialized teams in California, New York, Florida, Texas, and Washington.",
               },
               {
                 question: "Can you help with international property purchases?",
-                answer: "Yes, we have partnerships with luxury real estate firms globally and can assist with international property transactions."
-              }
+                answer:
+                  "Yes, we have partnerships with luxury real estate firms globally and can assist with international property transactions.",
+              },
             ].map((faq, index) => (
               <Card key={index}>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {faq.question}
+                  </h3>
                   <p className="text-muted-foreground">{faq.answer}</p>
                 </CardContent>
               </Card>

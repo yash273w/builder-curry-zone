@@ -73,7 +73,8 @@ const propertyData = {
     title: "Senior Real Estate Agent",
     phone: "+1 (555) 123-4567",
     email: "sarah.johnson@luxuryrealty.com",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&q=80",
     experience: "12 years",
     sales: "450+ properties sold",
   },
@@ -94,13 +95,13 @@ export default function PropertyDetail() {
 
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === propertyData.images.length - 1 ? 0 : prev + 1
+      prev === propertyData.images.length - 1 ? 0 : prev + 1,
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === 0 ? propertyData.images.length - 1 : prev - 1
+      prev === 0 ? propertyData.images.length - 1 : prev - 1,
     );
   };
 
@@ -249,7 +250,9 @@ export default function PropertyDetail() {
                 <div className="bg-muted/50 p-4 rounded-lg text-center">
                   <Square className="w-6 h-6 mx-auto mb-2 text-primary" />
                   <div className="font-semibold">{propertyData.area}</div>
-                  <div className="text-sm text-muted-foreground">Living Area</div>
+                  <div className="text-sm text-muted-foreground">
+                    Living Area
+                  </div>
                 </div>
                 <div className="bg-muted/50 p-4 rounded-lg text-center">
                   <Square className="w-6 h-6 mx-auto mb-2 text-primary" />
@@ -260,7 +263,9 @@ export default function PropertyDetail() {
 
               {/* Description */}
               <div>
-                <h2 className="text-2xl font-semibold mb-4">About This Property</h2>
+                <h2 className="text-2xl font-semibold mb-4">
+                  About This Property
+                </h2>
                 <p className="text-muted-foreground leading-relaxed">
                   {propertyData.description}
                 </p>
@@ -294,20 +299,30 @@ export default function PropertyDetail() {
 
               {/* Property Information */}
               <div>
-                <h2 className="text-2xl font-semibold mb-4">Property Information</h2>
+                <h2 className="text-2xl font-semibold mb-4">
+                  Property Information
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Property Type:</span>
-                      <span className="font-medium">{propertyData.propertyType}</span>
+                      <span className="text-muted-foreground">
+                        Property Type:
+                      </span>
+                      <span className="font-medium">
+                        {propertyData.propertyType}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Year Built:</span>
-                      <span className="font-medium">{propertyData.yearBuilt}</span>
+                      <span className="font-medium">
+                        {propertyData.yearBuilt}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Lot Size:</span>
-                      <span className="font-medium">{propertyData.lotSize}</span>
+                      <span className="font-medium">
+                        {propertyData.lotSize}
+                      </span>
                     </div>
                   </div>
                   <div className="space-y-3">
@@ -316,11 +331,15 @@ export default function PropertyDetail() {
                       <span className="font-medium">{propertyData.status}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Living Area:</span>
+                      <span className="text-muted-foreground">
+                        Living Area:
+                      </span>
                       <span className="font-medium">{propertyData.area}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Property ID:</span>
+                      <span className="text-muted-foreground">
+                        Property ID:
+                      </span>
                       <span className="font-medium">#{propertyData.id}</span>
                     </div>
                   </div>
@@ -345,7 +364,9 @@ export default function PropertyDetail() {
                       className="w-16 h-16 rounded-full object-cover"
                     />
                     <div>
-                      <h3 className="font-semibold">{propertyData.agent.name}</h3>
+                      <h3 className="font-semibold">
+                        {propertyData.agent.name}
+                      </h3>
                       <p className="text-sm text-muted-foreground">
                         {propertyData.agent.title}
                       </p>
@@ -382,8 +403,8 @@ export default function PropertyDetail() {
               <Card>
                 <CardContent className="pt-6">
                   <div className="space-y-3">
-                    <Button 
-                      className="w-full" 
+                    <Button
+                      className="w-full"
                       size="lg"
                       onClick={handlePayment}
                     >

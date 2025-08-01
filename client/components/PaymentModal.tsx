@@ -54,7 +54,11 @@ const paymentOptions: PaymentOption[] = [
   },
 ];
 
-export default function PaymentModal({ isOpen, onClose, property }: PaymentModalProps) {
+export default function PaymentModal({
+  isOpen,
+  onClose,
+  property,
+}: PaymentModalProps) {
   const [selectedOption, setSelectedOption] = useState("booking");
   const [customerInfo, setCustomerInfo] = useState({
     name: "",
@@ -66,7 +70,9 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
 
   if (!isOpen) return null;
 
-  const selectedPaymentOption = paymentOptions.find(option => option.id === selectedOption);
+  const selectedPaymentOption = paymentOptions.find(
+    (option) => option.id === selectedOption,
+  );
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -85,11 +91,11 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
     }
 
     setIsProcessing(true);
-    
+
     try {
       // Load Razorpay script
       const scriptLoaded = await loadRazorpayScript();
-      
+
       if (!scriptLoaded) {
         alert("Failed to load payment gateway. Please try again.");
         setIsProcessing(false);
@@ -97,7 +103,9 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
       }
 
       // Convert amount to paise (Razorpay expects amount in smallest currency unit)
-      const amountInPaise = parseFloat(selectedPaymentOption?.amount.replace(/[$,]/g, "") || "0") * 100;
+      const amountInPaise =
+        parseFloat(selectedPaymentOption?.amount.replace(/[$,]/g, "") || "0") *
+        100;
 
       const options = {
         key: "rzp_test_9999999999999999", // Replace with your Razorpay key
@@ -110,7 +118,9 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
         handler: function (response: any) {
           // Payment successful
           console.log("Payment successful:", response);
-          alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+          alert(
+            `Payment successful! Payment ID: ${response.razorpay_payment_id}`,
+          );
           setIsProcessing(false);
           onClose();
         },
@@ -128,15 +138,14 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
           color: "#0EA5E9", // Your brand color
         },
         modal: {
-          ondismiss: function() {
+          ondismiss: function () {
             setIsProcessing(false);
-          }
-        }
+          },
+        },
       };
 
       const razorpay = new window.Razorpay(options);
       razorpay.open();
-
     } catch (error) {
       console.error("Payment error:", error);
       alert("Payment failed. Please try again.");
@@ -176,8 +185,12 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                     />
                     <div>
                       <h3 className="font-semibold">{property.title}</h3>
-                      <p className="text-sm text-muted-foreground">{property.location}</p>
-                      <p className="text-lg font-bold text-primary mt-1">{property.price}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {property.location}
+                      </p>
+                      <p className="text-lg font-bold text-primary mt-1">
+                        {property.price}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -207,9 +220,13 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                       <div className="flex items-center justify-between">
                         <div>
                           <h4 className="font-semibold">{option.name}</h4>
-                          <p className="text-sm text-muted-foreground">{option.description}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {option.description}
+                          </p>
                         </div>
-                        <div className="text-xl font-bold text-primary">{option.amount}</div>
+                        <div className="text-xl font-bold text-primary">
+                          {option.amount}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -237,7 +254,9 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
               {/* Customer Information */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Customer Information</CardTitle>
+                  <CardTitle className="text-lg">
+                    Customer Information
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
@@ -246,7 +265,10 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                       id="customer-name"
                       value={customerInfo.name}
                       onChange={(e) =>
-                        setCustomerInfo({ ...customerInfo, name: e.target.value })
+                        setCustomerInfo({
+                          ...customerInfo,
+                          name: e.target.value,
+                        })
                       }
                       placeholder="Enter your full name"
                       required
@@ -259,7 +281,10 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                       type="email"
                       value={customerInfo.email}
                       onChange={(e) =>
-                        setCustomerInfo({ ...customerInfo, email: e.target.value })
+                        setCustomerInfo({
+                          ...customerInfo,
+                          email: e.target.value,
+                        })
                       }
                       placeholder="Enter your email"
                       required
@@ -271,7 +296,10 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                       id="customer-phone"
                       value={customerInfo.phone}
                       onChange={(e) =>
-                        setCustomerInfo({ ...customerInfo, phone: e.target.value })
+                        setCustomerInfo({
+                          ...customerInfo,
+                          phone: e.target.value,
+                        })
                       }
                       placeholder="Enter your phone number"
                       required
@@ -283,7 +311,10 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                       id="customer-address"
                       value={customerInfo.address}
                       onChange={(e) =>
-                        setCustomerInfo({ ...customerInfo, address: e.target.value })
+                        setCustomerInfo({
+                          ...customerInfo,
+                          address: e.target.value,
+                        })
                       }
                       placeholder="Enter your address"
                     />
@@ -300,11 +331,15 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span>Payment Type:</span>
-                      <span className="font-semibold">{selectedPaymentOption?.name}</span>
+                      <span className="font-semibold">
+                        {selectedPaymentOption?.name}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Amount:</span>
-                      <span className="font-semibold">{selectedPaymentOption?.amount}</span>
+                      <span className="font-semibold">
+                        {selectedPaymentOption?.amount}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span>Processing Fee:</span>
@@ -313,7 +348,9 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                     <hr />
                     <div className="flex justify-between text-lg font-bold">
                       <span>Total:</span>
-                      <span className="text-primary">{selectedPaymentOption?.amount}</span>
+                      <span className="text-primary">
+                        {selectedPaymentOption?.amount}
+                      </span>
                     </div>
                   </div>
                 </CardContent>
@@ -340,7 +377,9 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
 
               {/* Payment Methods */}
               <div className="text-center space-y-2">
-                <p className="text-sm text-muted-foreground">Secure payment powered by</p>
+                <p className="text-sm text-muted-foreground">
+                  Secure payment powered by
+                </p>
                 <div className="flex items-center justify-center space-x-4">
                   <img
                     src="https://razorpay.com/assets/razorpay-logo.svg"
@@ -349,7 +388,8 @@ export default function PaymentModal({ isOpen, onClose, property }: PaymentModal
                   />
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  We accept all major credit cards, debit cards, net banking, and UPI
+                  We accept all major credit cards, debit cards, net banking,
+                  and UPI
                 </p>
               </div>
             </div>
