@@ -20,6 +20,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Header from "@/components/Header";
+import PaymentModal from "@/components/PaymentModal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
