@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Properties from "./pages/Properties";
 import About from "./pages/About";
 import Agents from "./pages/Agents";
+import AgentProfile from "./pages/AgentProfile";
 import Contact from "./pages/Contact";
 import PropertyDetail from "./pages/PropertyDetail";
 import NotFound from "./pages/NotFound";
