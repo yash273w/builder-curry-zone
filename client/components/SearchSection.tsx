@@ -2,7 +2,13 @@ import { useState } from "react";
 import { Search, MapPin, Home, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const SearchSection = () => {
   const [searchType, setSearchType] = useState("buy");
@@ -48,10 +54,7 @@ const SearchSection = () => {
         {/* Location */}
         <div className="relative">
           <MapPin className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
-          <Input
-            placeholder="Enter location"
-            className="pl-10"
-          />
+          <Input placeholder="Enter location" className="pl-10" />
         </div>
 
         {/* Property Type */}

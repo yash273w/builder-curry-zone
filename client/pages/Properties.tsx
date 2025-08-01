@@ -5,7 +5,13 @@ import PropertyCard from "@/components/PropertyCard";
 import SearchSection from "@/components/SearchSection";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // Mock data for all properties
 const allProperties = [
@@ -17,7 +23,8 @@ const allProperties = [
     bedrooms: 5,
     bathrooms: 4,
     area: "4,200 sq ft",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
     status: "For Sale" as const,
     featured: true,
   },
@@ -29,7 +36,8 @@ const allProperties = [
     bedrooms: 3,
     bathrooms: 3,
     area: "2,800 sq ft",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
     status: "For Sale" as const,
     featured: true,
   },
@@ -41,7 +49,8 @@ const allProperties = [
     bedrooms: 4,
     bathrooms: 3,
     area: "3,500 sq ft",
-    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
     status: "For Rent" as const,
   },
   {
@@ -52,7 +61,8 @@ const allProperties = [
     bedrooms: 2,
     bathrooms: 2,
     area: "1,800 sq ft",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
     status: "For Sale" as const,
   },
   {
@@ -63,7 +73,8 @@ const allProperties = [
     bedrooms: 6,
     bathrooms: 5,
     area: "5,500 sq ft",
-    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
     status: "For Sale" as const,
     featured: true,
   },
@@ -75,7 +86,8 @@ const allProperties = [
     bedrooms: 2,
     bathrooms: 2,
     area: "1,400 sq ft",
-    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
     status: "For Rent" as const,
   },
   {
@@ -86,7 +98,8 @@ const allProperties = [
     bedrooms: 4,
     bathrooms: 3,
     area: "3,200 sq ft",
-    image: "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&q=80",
     status: "For Sale" as const,
   },
   {
@@ -97,7 +110,8 @@ const allProperties = [
     bedrooms: 5,
     bathrooms: 4,
     area: "4,800 sq ft",
-    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
     status: "For Sale" as const,
     featured: true,
   },
@@ -109,7 +123,8 @@ const allProperties = [
     bedrooms: 1,
     bathrooms: 1,
     area: "900 sq ft",
-    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
     status: "For Rent" as const,
   },
 ];
@@ -121,7 +136,7 @@ export default function Properties() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Page Header */}
       <section className="bg-muted/30 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,7 +145,8 @@ export default function Properties() {
               Property Listings
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover your perfect home from our curated collection of luxury properties
+              Discover your perfect home from our curated collection of luxury
+              properties
             </p>
           </div>
           <SearchSection />
@@ -150,7 +166,7 @@ export default function Properties() {
                 Showing {allProperties.length} properties
               </p>
             </div>
-            
+
             <div className="flex items-center gap-4">
               {/* Sort */}
               <Select defaultValue="newest">
@@ -210,18 +226,26 @@ export default function Properties() {
                   <h3 className="text-lg font-semibold">Filters</h3>
                   <SlidersHorizontal className="w-5 h-5 text-muted-foreground" />
                 </div>
-                
+
                 <div className="space-y-6">
                   {/* Property Status */}
                   <div>
                     <h4 className="font-medium mb-3">Property Status</h4>
                     <div className="space-y-2">
                       <label className="flex items-center">
-                        <input type="checkbox" className="mr-2" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          defaultChecked
+                        />
                         For Sale
                       </label>
                       <label className="flex items-center">
-                        <input type="checkbox" className="mr-2" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          defaultChecked
+                        />
                         For Rent
                       </label>
                     </div>
@@ -232,19 +256,35 @@ export default function Properties() {
                     <h4 className="font-medium mb-3">Property Type</h4>
                     <div className="space-y-2">
                       <label className="flex items-center">
-                        <input type="checkbox" className="mr-2" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          defaultChecked
+                        />
                         Houses
                       </label>
                       <label className="flex items-center">
-                        <input type="checkbox" className="mr-2" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          defaultChecked
+                        />
                         Apartments
                       </label>
                       <label className="flex items-center">
-                        <input type="checkbox" className="mr-2" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          defaultChecked
+                        />
                         Condos
                       </label>
                       <label className="flex items-center">
-                        <input type="checkbox" className="mr-2" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          defaultChecked
+                        />
                         Villas
                       </label>
                     </div>
@@ -276,7 +316,7 @@ export default function Properties() {
                     Close
                   </Button>
                 </div>
-                
+
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-medium mb-2">Property Status</h4>
@@ -285,7 +325,7 @@ export default function Properties() {
                       <Badge variant="outline">For Rent</Badge>
                     </div>
                   </div>
-                  
+
                   <div>
                     <h4 className="font-medium mb-2">Property Type</h4>
                     <div className="flex flex-wrap gap-2">
@@ -295,7 +335,7 @@ export default function Properties() {
                       <Badge variant="outline">Villas</Badge>
                     </div>
                   </div>
-                  
+
                   <Button className="w-full">Apply Filters</Button>
                 </div>
               </div>
@@ -321,14 +361,15 @@ export default function Properties() {
                   <Button variant="outline" disabled>
                     Previous
                   </Button>
-                  <Button variant="outline" className="bg-primary text-primary-foreground">
+                  <Button
+                    variant="outline"
+                    className="bg-primary text-primary-foreground"
+                  >
                     1
                   </Button>
                   <Button variant="outline">2</Button>
                   <Button variant="outline">3</Button>
-                  <Button variant="outline">
-                    Next
-                  </Button>
+                  <Button variant="outline">Next</Button>
                 </div>
               </div>
             </div>
