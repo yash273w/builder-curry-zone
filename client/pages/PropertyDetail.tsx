@@ -523,6 +523,19 @@ export default function PropertyDetail() {
           </div>
         </div>
       )}
+
+      {/* Payment Modal */}
+      <PaymentModal
+        isOpen={isPaymentOpen}
+        onClose={() => setIsPaymentOpen(false)}
+        property={{
+          id: propertyData.id,
+          title: propertyData.title,
+          price: propertyData.price,
+          image: propertyData.images[0],
+          location: propertyData.location,
+        }}
+      />
     </div>
   );
 }
