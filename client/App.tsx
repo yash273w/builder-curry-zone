@@ -39,4 +39,20 @@ const App = () => (
   </QueryClientProvider>
 );
 
-createRoot(document.getElementById("root")!).render(<App />);
+// Ensure root is only created once
+const container = document.getElementById("root")!;
+
+// Check if root already exists in development
+let root: any;
+if (import.meta.hot) {
+  // In development with HMR, store root on the container to prevent recreation
+  if (!(container as any)._reactRoot) {
+    (container as any)._reactRoot = createRoot(container);
+  }
+  root = (container as any)._reactRoot;
+} else {
+  // In production, create root normally
+  root = createRoot(container);
+}
+
+root.render(<App />);
