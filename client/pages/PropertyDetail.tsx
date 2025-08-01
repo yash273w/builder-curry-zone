@@ -112,8 +112,7 @@ export default function PropertyDetail() {
   };
 
   const handlePayment = () => {
-    // This will be implemented when we add Razorpay
-    alert("Payment integration coming next!");
+    setIsPaymentOpen(true);
   };
 
   return (
